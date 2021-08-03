@@ -32,11 +32,13 @@ assertEquals(listTitles(books), ['The Road Ahead', 'Lord of the Rings', 'Harry P
        and returns an array of authors (strings) */
 
 function listAuthors(booksArray) {
-  let authorArray = [];
-  for (book of booksArray) {
-    authorArray.push(book.author);
-  }
-  return authorArray;
+  //   let authorArray = [];
+  //   for (book of booksArray) {
+  //     authorArray.push(book.author);
+  //   }
+  //   return authorArray;
+  // 
+  return booksArray.map((book) => book.author);
 }
 
 // Assertions (do not change)
@@ -46,11 +48,13 @@ assertEquals(listAuthors(books), ['Bill Gates', 'JRR Tolkkien', 'JK Rowling'])
        of book objects and returns an array of authors (strings) */
 
 function listValues(booksArray, key) {
-  let anyArray = [];
-  for (book of booksArray) {
-    anyArray.push(book[key]);
-  }
-  return anyArray;
+  // let anyArray = [];
+  // for (book of booksArray) {
+  //   anyArray.push(book[key]);
+  // }
+  // return anyArray;
+
+  return booksArray.map((book) => book[key]);
 }
 
 // Assertions (do not change)

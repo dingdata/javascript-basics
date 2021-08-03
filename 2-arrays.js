@@ -5,6 +5,7 @@ const assertEquals = require("./assert-helper");
 // the returned array should be sorted in descending alphabetical order
 function reverseSortLetters(arrays) {
   // fill in your code
+  return arrays.sort().reverse();
 }
 
 // Assertions (do not change)
@@ -16,6 +17,8 @@ assertEquals(reverseSortLetters(["d", "c", "b", "a"]), ["d", "c", "b", "a"]);
 
 function getSmallest(numbers) {
   // fill in your code
+  //return numbers.sort()[0];
+  return numbers.sort((a, b) => a - b)[0];
 }
 
 // Assertions (do not change)
@@ -26,6 +29,8 @@ assertEquals(getSmallest([4, 3, 2, 1]), 1);
 // Define a function that returns the sum of an array
 function sum(array) {
   // fill in your code
+
+  return array.reduce((accumulator, currentValue) => accumulator + currentValue);
 }
 
 // Assertions (do not change)
@@ -35,7 +40,7 @@ assertEquals(sum([1, 2, 3, 4]), 10);
 /* ---------------------- EXERCISE 3 ---------------------- */
 // Define a function that returns an array of even numbers
 function evenNumbersOnly(array) {
-  // fill in your code
+  return array.filter((number) => number % 2 === 0);
 }
 
 // Assertions (do not change)
@@ -47,6 +52,7 @@ assertEquals(evenNumbersOnly([10, 11, 12]), [10, 12]);
 // hint: reuse the 2 functions that you defined earlier.
 function sumEvenNumbers(array) {
   // fill in your code
+  return sum(evenNumbersOnly(array));
 }
 
 // Assertions (do not change)
@@ -60,6 +66,12 @@ assertEquals(sumEvenNumbers([10, 11, 12]), 22);
 
 function sortedUnion(arr1, arr2) {
   // fill in your code
+  let arr3 = arr1.concat(arr2);
+
+  arr3.sort((a, b) => a - b);
+
+  return arr3 = [...new Set(arr3)];
+  //arr3.filter((a, b, c) => b === c.indexOf(a));
 }
 
 // Assertions (do not change)
