@@ -1,9 +1,10 @@
+const { WSAECONNREFUSED } = require("constants");
 var assertEquals = require("./assert-helper");
 
 /* ---------------------- EXERCISE 0 ---------------------- */
 // define a function that takes in an array of numbers and outputs an array of the numbers that are even
 function keepEvenNumbers(numbers) {
-
+  return numbers.filter((number) => number % 2 === 0);
 }
 
 // Assertions (do not change)
@@ -13,6 +14,7 @@ assertEquals(keepEvenNumbers([10, 15, 20, 25, 30, 35]), [10, 20, 30]);
 /* ---------------------- EXERCISE 1 ---------------------- */
 // define a function that takes in an array of strings and outputs an array of single-word strings (i.e. it has no spaces)
 function keepSingleWords(words) {
+  return words.filter(singleWordReturn => !singleWordReturn.includes(" "));
 
 }
 
@@ -26,7 +28,7 @@ assertEquals(keepSingleWords(["hello world", "ok", "bye"]), ["ok", "bye"]);
 // It should return an array of the names of the people which are above the age limit
 // hint: you need to apply filter and map
 function filterUnderagedPeople(people, ageLimit) {
-  
+  return people.filter(person => person.age > ageLimit).map(adult => adult.name);
 }
 
 // Assertions (do not change)
@@ -45,8 +47,9 @@ assertEquals(filterUnderagedPeople(people, 26), ["tim"]);
 // It should return an array of emails that match the domain
 // hint: you need to use the ...rest operator in the function's parameters
 
-function filterEmailsByDomain() {
-
+function filterEmailsByDomain(domain, ...emails) {
+  console.log(emails);
+  return emails.filter(email => email.includes(domain));
 }
 
 let actual = filterEmailsByDomain(
